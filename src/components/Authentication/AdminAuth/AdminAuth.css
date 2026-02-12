@@ -1,0 +1,228 @@
+/* AdminAuth.css - Premium Glassmorphism Design */
+:root {
+    --admin-primary: #2f5c39;
+    --admin-accent: #6cbd45;
+    --admin-bg-gradient: linear-gradient(135deg, #1a2a1d 0%, #2f5c39 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --text-light: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --error-color: #ff4d4f;
+}
+
+.admin-auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--admin-bg-gradient);
+    font-family: 'Outfit', sans-serif;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decorative elements */
+.admin-auth-container::before,
+.admin-auth-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.admin-auth-container::before {
+    width: 300px;
+    height: 300px;
+    background: var(--admin-accent);
+    top: -50px;
+    left: -50px;
+    opacity: 0.4;
+}
+
+.admin-auth-container::after {
+    width: 400px;
+    height: 400px;
+    background: #102e18;
+    bottom: -100px;
+    right: -100px;
+    opacity: 0.6;
+}
+
+.admin-auth-card {
+    width: 100%;
+    max-width: 450px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--glass-shadow);
+    z-index: 1;
+    color: var(--text-light);
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.admin-auth-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--admin-accent);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.admin-auth-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.admin-auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 4px rgba(108, 189, 69, 0.1);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-error {
+    background: rgba(255, 77, 79, 0.15);
+    border: 1px solid rgba(255, 77, 79, 0.3);
+    color: #ffccc7;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-submit-btn {
+    background: var(--admin-accent);
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.admin-submit-btn:hover {
+    background: #58a03d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 189, 69, 0.3);
+}
+
+.admin-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-top: 0.25rem;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: var(--admin-accent);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.auth-footer a {
+    color: var(--admin-accent);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

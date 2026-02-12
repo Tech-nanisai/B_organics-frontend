@@ -1,0 +1,185 @@
+/* ========== CSS VARIABLES ========== */
+:root {
+    --PaymentGateway-primary: #2f5c39;
+    --PaymentGateway-accent: #6cbd45;
+    --PaymentGateway-bg: #f9fafb;
+    --PaymentGateway-text: #1f2937;
+    --PaymentGateway-text-muted: #6b7280;
+    --PaymentGateway-border: rgba(0, 0, 0, 0.08);
+    --PaymentGateway-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+    --PaymentGateway-font: 'Outfit', sans-serif;
+}
+
+[data-theme="dark"] {
+    --PaymentGateway-bg: #111827;
+    --PaymentGateway-text: #f3f4f6;
+    --PaymentGateway-text-muted: #9ca3af;
+    --PaymentGateway-border: rgba(255, 255, 255, 0.1);
+    --PaymentGateway-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== CONTAINER ========== */
+.PaymentGateway-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--PaymentGateway-bg);
+    font-family: var(--PaymentGateway-font);
+    padding: 2rem;
+}
+
+/* ========== CARD ========== */
+.PaymentGateway-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 3rem 4rem;
+    border-radius: 24px;
+    border: 1px solid var(--PaymentGateway-border);
+    box-shadow: var(--PaymentGateway-shadow);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .PaymentGateway-card {
+    background: rgba(31, 41, 55, 0.8);
+}
+
+/* ========== ANIMATION ELEMENTS ========== */
+.PaymentGateway-iconWrapper {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.PaymentGateway-loader {
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgba(108, 189, 69, 0.2);
+    border-top: 4px solid var(--PaymentGateway-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.PaymentGateway-lockIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: var(--PaymentGateway-primary);
+    animation: pulse 2s infinite;
+}
+
+/* ========== TEXT ========== */
+.PaymentGateway-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--PaymentGateway-text);
+    margin-bottom: 1rem;
+}
+
+.PaymentGateway-message {
+    font-size: 1.1rem;
+    color: var(--PaymentGateway-text-muted);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* ========== STEPS ========== */
+.PaymentGateway-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.PaymentGateway-step {
+    font-size: 0.9rem;
+    color: var(--PaymentGateway-text-muted);
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.PaymentGateway-step.active {
+    opacity: 1;
+    color: var(--PaymentGateway-primary);
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+.PaymentGateway-step.completed {
+    opacity: 0.8;
+    color: var(--PaymentGateway-accent);
+    text-decoration: line-through;
+}
+
+/* ========== SECURE BADGE ========== */
+.PaymentGateway-secureBadge {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--PaymentGateway-text-muted);
+    opacity: 0.8;
+}
+
+.PaymentGateway-secureBadge i {
+    color: var(--PaymentGateway-primary);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .PaymentGateway-card {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,345 @@
+/* Fruits.css - Ultimate Premium White Edition */
+
+:root {
+  --Fruits-primary-elite: #111111;
+  --Fruits-secondary-elite: #777777;
+  --Fruits-accent-elite: #c2410c;
+  /* Deep Citrus Orange */
+  --Fruits-bg-elite: #ffffff;
+  --Fruits-border-elite: #eeeeee;
+  --Fruits-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --Fruits-card-shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --Fruits-font-main: 'Outfit', sans-serif;
+  --Fruits-font-mono: 'Space Mono', monospace;
+  --Fruits-transition-elite: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Fruits-container {
+  background: var(--Fruits-bg-elite);
+  padding: 8rem 2rem 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: var(--Fruits-font-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.Fruits-container::before {
+  content: "SEASONAL";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15vw;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+}
+
+.Fruits-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.Fruits-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--Fruits-primary-elite);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.Fruits-subtitle {
+  font-size: 1.1rem;
+  color: var(--Fruits-secondary-elite);
+  max-width: 450px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.Fruits-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.Fruits-card {
+  background: #ffffff;
+  border: 1px solid var(--Fruits-border-elite);
+  border-radius: 0px;
+  overflow: hidden;
+  transition: var(--Fruits-transition-elite);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.Fruits-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--Fruits-card-shadow-hover);
+  border-color: #000;
+}
+
+.Fruits-imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  /* Perfectly balanced square aspect ratio */
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.Fruits-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Fruits-card:hover .Fruits-image {
+  transform: scale(1.05);
+}
+
+.Fruits-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.Fruits-details {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Fruits-category-meta {
+  font-family: var(--Fruits-font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: var(--Fruits-secondary-elite);
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Fruits-category-meta::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--Fruits-secondary-elite);
+}
+
+.Fruits-card-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.Fruits-card-col-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.Fruits-card-col-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.Fruits-name {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--Fruits-primary-elite);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.Fruits-quantity {
+  font-family: var(--Fruits-font-mono);
+  font-weight: 400;
+  color: #888;
+  font-size: 0.6rem;
+}
+
+.Fruits-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Fruits-price {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.Fruits-originalPrice {
+  font-family: var(--Fruits-font-mono);
+  text-decoration: line-through;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.Fruits-actions {
+  margin-top: auto;
+}
+
+.Fruits-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--Fruits-transition-elite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Fruits-btn:hover {
+  background: var(--Fruits-accent-elite);
+  letter-spacing: 4px;
+}
+
+.Fruits-added {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--Fruits-accent-elite);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.Fruits-pagination {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--Fruits-border-elite);
+}
+
+.Fruits-pageBtn {
+  background: none;
+  border: none;
+  font-family: var(--Fruits-font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--Fruits-transition-elite);
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Fruits-pageBtn:hover:not(:disabled) {
+  color: var(--Fruits-accent-elite);
+  transform: translateX(5px);
+}
+
+.Fruits-pageBtn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.Fruits-pageInfo {
+  font-family: var(--Fruits-font-mono);
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.Fruits-loading,
+.Fruits-noData {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+  font-family: var(--Fruits-font-mono);
+}
+
+.Fruits-spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #eee;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: WelcomeSpin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1500px) {
+  .Fruits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .Fruits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .Fruits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Fruits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}

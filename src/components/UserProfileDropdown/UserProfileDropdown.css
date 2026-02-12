@@ -1,0 +1,263 @@
+/* ========== CSS VARIABLES ========== */
+/* Inheriting some variables from Navbar context if available, otherwise defining defaults */
+:root {
+  /* Colors - Consistent with Navbar Premium Theme */
+  --UserProfile-primary: #2f5c39;
+  --UserProfile-accent: #6cbd45;
+  --UserProfile-text: #1f2937;
+  --UserProfile-text-muted: #6b7280;
+  --UserProfile-bg: rgba(255, 255, 255, 0.95);
+  --UserProfile-border: rgba(0, 0, 0, 0.05);
+  --UserProfile-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --UserProfile-danger: #ef4444;
+
+  /* Typography */
+  --UserProfile-font: 'Outfit', sans-serif;
+
+  /* Animation */
+  --UserProfile-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --UserProfile-bg: rgba(25, 25, 30, 0.92);
+  --UserProfile-text: #f3f4f6;
+  --UserProfile-text-muted: #9ca3af;
+  --UserProfile-border: rgba(255, 255, 255, 0.08);
+  --UserProfile-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== COMPONENT STYLES ========== */
+
+.UserProfile-container {
+  position: relative;
+  display: inline-block;
+  font-family: var(--UserProfile-font);
+}
+
+/* Trigger Button */
+.UserProfile-trigger {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  transition: var(--UserProfile-transition);
+  color: var(--UserProfile-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.UserProfile-trigger:hover,
+.UserProfile-container:hover .UserProfile-trigger {
+  background: rgba(108, 189, 69, 0.08);
+  border-color: rgba(108, 189, 69, 0.2);
+  color: var(--UserProfile-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .UserProfile-trigger:hover,
+[data-theme="dark"] .UserProfile-container:hover .UserProfile-trigger {
+  background: rgba(108, 189, 69, 0.15);
+  border-color: rgba(108, 189, 69, 0.3);
+  color: #fff;
+}
+
+.UserProfile-icon {
+  font-size: 1.4rem;
+  color: var(--UserProfile-accent);
+  transition: var(--UserProfile-transition);
+}
+
+.UserProfile-avatarImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--UserProfile-accent);
+  padding: 1px;
+}
+
+.UserProfile-name {
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.UserProfile-chevron {
+  font-size: 0.7rem;
+  color: var(--UserProfile-text-muted);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.UserProfile-container:hover .UserProfile-chevron {
+  color: var(--UserProfile-primary);
+}
+
+/* Dropdown Menu */
+.UserProfile-menu {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5rem;
+  right: 0;
+  width: 220px;
+  background: var(--UserProfile-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--UserProfile-border);
+  border-radius: 20px;
+  box-shadow: var(--UserProfile-shadow);
+  padding: 0.6rem;
+  z-index: 1200;
+  overflow: visible;
+  /* Changed to visible to allow pseudo-element bridge */
+
+  /* Animation state handled by React conditional rendering */
+  animation: UserProfile-menuSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top right;
+}
+
+/* Invisible bridge to prevent dropdown from closing */
+.UserProfile-menu::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: transparent;
+}
+
+@keyframes UserProfile-menuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Menu Items */
+.UserProfile-menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 4px;
+  color: var(--UserProfile-text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--UserProfile-transition);
+}
+
+.UserProfile-menuItem:last-child {
+  margin-bottom: 0;
+}
+
+.UserProfile-menuItem i {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+  color: var(--UserProfile-text-muted);
+  transition: var(--UserProfile-transition);
+}
+
+/* Hover States */
+.UserProfile-menuItem:hover {
+  background: rgba(108, 189, 69, 0.1);
+  color: var(--UserProfile-primary);
+  transform: translateX(5px);
+}
+
+.UserProfile-menuItem:hover i {
+  color: var(--UserProfile-accent);
+  transform: scale(1.1);
+}
+
+/* Specific Actions */
+.UserProfile-menuItem.logout {
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.UserProfile-menuItem.logout::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: var(--UserProfile-border);
+}
+
+.UserProfile-menuItem.logout:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--UserProfile-danger);
+}
+
+.UserProfile-menuItem.logout:hover i {
+  color: var(--UserProfile-danger);
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .UserProfile-trigger {
+    padding: 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .UserProfile-name {
+    display: none;
+  }
+
+  .UserProfile-chevron {
+    display: none;
+  }
+
+  .UserProfile-menu {
+    width: 200px;
+    right: -10px;
+  }
+}
+
+.UserProfile-loading-skeleton {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  animation: UserProfile-skeletonPulse 1.5s infinite ease-in-out;
+}
+
+[data-theme="dark"] .UserProfile-loading-skeleton {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes UserProfile-skeletonPulse {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.PD-container {
+    font-family: 'Outfit', sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #1f2937;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.PD-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+/* Image Section */
+.PD-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.PD-main-image-frame {
+    width: 100%;
+    height: 500px;
+    background: #f9fafb;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.PD-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Changed to contain to show full product */
+    transition: transform 0.5s ease;
+}
+
+.PD-main-image:hover {
+    transform: scale(1.05);
+}
+
+.PD-thumbnails {
+    display: flex;
+    gap: 1rem;
+}
+
+.PD-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.PD-thumb.active {
+    border-color: #15803d;
+    opacity: 1;
+}
+
+.PD-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Info Section */
+.PD-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.PD-category {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #15803d;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.PD-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+.PD-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.PD-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.PD-current-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.PD-original-price {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.PD-discount-badge {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.PD-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.PD-btn {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.PD-add-cart {
+    background: #111;
+    color: #fff;
+    border: none;
+}
+
+.PD-add-cart:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.PD-buy-now {
+    background: #15803d;
+    color: #fff;
+    border: none;
+}
+
+.PD-buy-now:hover {
+    background: #166534;
+    transform: translateY(-2px);
+}
+
+/* Recommended */
+.PD-recommended {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 4rem;
+}
+
+.PD-rec-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.PD-rec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.PD-rec-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.PD-rec-card:hover {
+    border-color: #15803d;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+.PD-rec-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.PD-rec-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+.PD-rec-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #15803d;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .PD-rec-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .PD-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .PD-main-image-frame {
+        height: 350px;
+    }
+
+    .PD-title {
+        font-size: 2rem;
+    }
+
+    .PD-rec-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

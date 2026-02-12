@@ -1,0 +1,504 @@
+/* ========== ULTIMATE PREMIUM BANNER THEME ========== */
+:root {
+  --Banner-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --Banner-transition: 0.6s var(--Banner-easing);
+  --Banner-glass-bg: rgba(255, 255, 255, 0.03);
+  --Banner-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.Banner-carousel-root {
+  width: 100%;
+  height: 75vh;
+  min-height: 550px;
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0b;
+  /* Dark base for depth */
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 2.5rem;
+}
+
+.Banner-viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.8s var(--Banner-easing);
+}
+
+/* Background Composite Layers */
+.Banner-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.6) saturate(1.2);
+  transition: transform 1.5s var(--Banner-easing), opacity 0.8s ease;
+  z-index: 0;
+}
+
+.Banner-glass-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+      rgba(10, 10, 11, 0.95) 0%,
+      rgba(10, 10, 11, 0.6) 40%,
+      transparent 100%);
+  z-index: 1;
+}
+
+.Banner-accent-glow {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  filter: blur(180px);
+  opacity: 0.15;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  transition: background 0.8s ease;
+}
+
+/* Container & Layout */
+.Banner-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 6%;
+  position: relative;
+  z-index: 5;
+}
+
+.Banner-main-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Text Stack */
+.Banner-text-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.Banner-badge-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.Banner-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: var(--Banner-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--Banner-glass-border);
+  border-radius: 100px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.Banner-headline {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.word-fade {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealWord 0.6s var(--Banner-easing) forwards;
+}
+
+.Banner-headline span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.Banner-headline span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.Banner-headline span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.Banner-description {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 550px;
+  margin: 0;
+}
+
+/* Premium Button */
+.Banner-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 6px 6px 24px;
+  border-radius: 100px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  height: 56px;
+  min-width: 220px;
+  justify-content: space-between;
+  transition: var(--Banner-transition);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--btn-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  transition: transform 0.4s var(--Banner-easing);
+}
+
+.Banner-primary-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.4);
+}
+
+.Banner-primary-btn:hover .btn-icon {
+  transform: scale(0.9) translateX(5px);
+}
+
+/* Visuals Frame */
+.Banner-hero-visual {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Banner-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ultra-smooth entrance/exit */
+  transition:
+    transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.5s ease,
+    filter 0.8s ease;
+  transform: scale(1) translateY(0) rotate(0);
+  opacity: 1;
+  filter: blur(0) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* Glass Sweep Flare Effect */
+.Banner-image-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  transform: skewX(-25deg);
+  transition: 0.8s ease-in-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.Banner-viewport:not(.is-transitioning) .Banner-image-frame::after {
+  left: 150%;
+  transition: left 1.2s ease-in-out 0.4s;
+}
+
+/* Idle Floating - High-End Momentum */
+.Banner-viewport:not(.is-transitioning) .Banner-image-frame {
+  animation: premiumFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes premiumFloat {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.02) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(-5px) scale(1) rotate(-1deg);
+  }
+}
+
+/* Specific sizing for the Coffee slide */
+.Banner-image-frame.is-large {
+  max-width: 1100px;
+}
+
+.Banner-image-frame.is-large .Banner-main-img {
+  height: 600px;
+}
+
+.Banner-main-img {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+  transition: transform 10s linear;
+  user-select: none;
+}
+
+.Banner-viewport:not(.is-transitioning) .Banner-main-img {
+  transform: scale(1.08);
+  /* Continuous slow growth while active */
+}
+
+.image-depth-shadow {
+  display: none;
+}
+
+/* Navigation Interface */
+.Banner-nav-interface {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  background: linear-gradient(to top, rgba(10, 10, 11, 0.5), transparent);
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-arrow {
+  background: var(--Banner-glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--Banner-glass-border);
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.nav-arrow:hover {
+  background: #fff;
+  color: #000;
+}
+
+.nav-pagination {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-dot {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.4;
+  transition: 0.3s ease;
+}
+
+.dot-label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.nav-dot::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: 0.4s var(--Banner-easing);
+}
+
+.nav-dot.is-active {
+  opacity: 1;
+}
+
+.nav-dot.is-active::after {
+  width: 100%;
+}
+
+.nav-index-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-index-indicator .separator {
+  opacity: 0.3;
+  font-weight: 300;
+}
+
+/* Transition Animations - Cinematic Exit */
+.is-transitioning.next .Banner-bg-layer {
+  transform: translateX(40px) scale(1.08);
+  opacity: 0.2;
+}
+
+.is-transitioning.prev .Banner-bg-layer {
+  transform: translateX(-40px) scale(1.08);
+  opacity: 0.2;
+}
+
+/* The Image Frame - Hero Exit & Entrance Logic */
+.is-transitioning .Banner-image-frame {
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(0.7) translateY(40px) rotate(-5deg);
+  transition:
+    transform 0.5s ease-in,
+    opacity 0.4s ease,
+    filter 0.5s ease;
+}
+
+/* Next/Prev Specific Exits for even more smoothness */
+.is-transitioning.next .Banner-image-frame {
+  transform: translateX(60px) scale(0.7) rotate(5deg);
+}
+
+.is-transitioning.prev .Banner-image-frame {
+  transform: translateX(-60px) scale(0.7) rotate(-5deg);
+}
+
+.is-transitioning .Banner-text-stack {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(8px);
+  transition: all 0.5s ease-in;
+}
+
+@keyframes revealWord {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .Banner-main-content {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Banner-carousel-root {
+    height: auto;
+    min-height: 700px;
+    padding-bottom: 100px;
+  }
+
+  .Banner-main-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .Banner-hero-visual {
+    display: none !important;
+  }
+
+  .Banner-text-stack {
+    align-items: center;
+  }
+
+  .Banner-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .Banner-carousel-root {
+    padding-top: 2rem;
+  }
+
+  .Banner-headline {
+    font-size: 2.8rem;
+  }
+
+  .Banner-description {
+    font-size: 1.1rem;
+  }
+
+  .Banner-nav-interface {
+    padding: 0 4%;
+  }
+
+  .nav-group {
+    gap: 1.5rem;
+  }
+
+  .nav-index-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .Banner-pill {
+    font-size: 12px;
+  }
+
+  .Banner-primary-btn {
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  .nav-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 0.9rem;
+  }
+
+  .nav-pagination {
+    display: none;
+  }
+}

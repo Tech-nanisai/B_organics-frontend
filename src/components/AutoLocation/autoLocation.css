@@ -1,0 +1,131 @@
+/* ========== CSS VARIABLES ========== */
+:root {
+    --AutoLocation-primary: #6cbd45;
+    --AutoLocation-bg: rgba(255, 255, 255, 0.8);
+    --AutoLocation-text: #1f2937;
+    --AutoLocation-text-muted: #6b7280;
+    --AutoLocation-border: rgba(108, 189, 69, 0.2);
+}
+
+[data-theme="dark"] {
+    --AutoLocation-bg: rgba(31, 41, 55, 0.8);
+    --AutoLocation-text: #f3f4f6;
+    --AutoLocation-text-muted: #9ca3af;
+    --AutoLocation-border: rgba(108, 189, 69, 0.3);
+}
+
+.AutoLocation-container {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.AutoLocation-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--AutoLocation-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 6px 16px;
+    border-radius: 99px;
+    border: 1px solid var(--AutoLocation-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.AutoLocation-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 189, 69, 0.2);
+    border-color: var(--AutoLocation-primary);
+}
+
+.AutoLocation-icon {
+    color: var(--AutoLocation-primary);
+    font-size: 14px;
+    animation: bounce 2s infinite;
+}
+
+.AutoLocation-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.AutoLocation-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--AutoLocation-text-muted);
+    font-weight: 600;
+}
+
+.AutoLocation-address {
+    font-size: 13px;
+    color: var(--AutoLocation-text);
+    white-space: nowrap;
+}
+
+.AutoLocation-status {
+    font-size: 13px;
+    color: var(--AutoLocation-text-muted);
+    font-style: italic;
+}
+
+.AutoLocation-error {
+    font-size: 12px;
+    color: #ef4444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.AutoLocation-retry {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.AutoLocation-error:hover .AutoLocation-retry {
+    transform: rotate(180deg);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.AutoLocation-container.is-loading .AutoLocation-icon {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .AutoLocation-badge {
+        padding: 4px 12px;
+    }
+}

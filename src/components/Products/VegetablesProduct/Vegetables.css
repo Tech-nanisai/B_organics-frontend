@@ -1,0 +1,345 @@
+/* Vegetables.css - Ultimate Premium White Edition */
+
+:root {
+  --Veg-primary-elite: #111111;
+  --Veg-secondary-elite: #777777;
+  --Veg-accent-elite: #2d5a27;
+  /* Deep Farm Green */
+  --Veg-bg-elite: #ffffff;
+  --Veg-border-elite: #eeeeee;
+  --Veg-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --Veg-card-shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --Veg-font-main: 'Outfit', sans-serif;
+  --Veg-font-mono: 'Space Mono', monospace;
+  --Veg-transition-elite: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Vegetables-container {
+  background: var(--Veg-bg-elite);
+  padding: 8rem 2rem 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: var(--Veg-font-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.Vegetables-container::before {
+  content: "HARVEST";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15vw;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+}
+
+.Vegetables-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.Vegetables-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--Veg-primary-elite);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.Vegetables-subtitle {
+  font-size: 1.1rem;
+  color: var(--Veg-secondary-elite);
+  max-width: 450px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.Vegetables-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.Vegetables-card {
+  background: #ffffff;
+  border: 1px solid var(--Veg-border-elite);
+  border-radius: 0px;
+  overflow: hidden;
+  transition: var(--Veg-transition-elite);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.Vegetables-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--Veg-card-shadow-hover);
+  border-color: #000;
+}
+
+.Vegetables-imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  /* Square aspect ratio for compact elite look */
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.Vegetables-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Vegetables-card:hover .Vegetables-image {
+  transform: scale(1.05);
+}
+
+.Vegetables-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.Vegetables-details {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Vegetables-category-meta {
+  font-family: var(--Veg-font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: var(--Veg-secondary-elite);
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Vegetables-category-meta::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--Veg-secondary-elite);
+}
+
+.Vegetables-card-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.Vegetables-card-col-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.Vegetables-card-col-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.Vegetables-name {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--Veg-primary-elite);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.Vegetables-quantity {
+  font-family: var(--Veg-font-mono);
+  font-weight: 400;
+  color: #888;
+  font-size: 0.6rem;
+}
+
+.Vegetables-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Vegetables-price {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.Vegetables-originalPrice {
+  font-family: var(--Veg-font-mono);
+  text-decoration: line-through;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.Vegetables-actions {
+  margin-top: auto;
+}
+
+.Vegetables-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--Veg-transition-elite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Vegetables-btn:hover {
+  background: var(--Veg-accent-elite);
+  letter-spacing: 4px;
+}
+
+.Vegetables-added {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--Veg-accent-elite);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.Vegetables-pagination {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--Veg-border-elite);
+}
+
+.Vegetables-pageBtn {
+  background: none;
+  border: none;
+  font-family: var(--Veg-font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--Veg-transition-elite);
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Vegetables-pageBtn:hover:not(:disabled) {
+  color: var(--Veg-accent-elite);
+  transform: translateX(5px);
+}
+
+.Vegetables-pageBtn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.Vegetables-pageInfo {
+  font-family: var(--Veg-font-mono);
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.Vegetables-loading,
+.Vegetables-noData {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+  font-family: var(--Veg-font-mono);
+}
+
+.Vegetables-spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #eee;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: WelcomeSpin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1500px) {
+  .Vegetables-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .Vegetables-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .Vegetables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Vegetables-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}

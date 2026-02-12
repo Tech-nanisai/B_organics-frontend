@@ -1,0 +1,345 @@
+/* Coffee.css - Ultimate Premium White Edition */
+
+:root {
+  --Coffee-primary-elite: #111111;
+  --Coffee-secondary-elite: #777777;
+  --Coffee-accent-elite: #4a3728;
+  /* Deep Coffee Brown */
+  --Coffee-bg-elite: #ffffff;
+  --Coffee-border-elite: #eeeeee;
+  --Coffee-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --Coffee-card-shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --Coffee-font-main: 'Outfit', sans-serif;
+  --Coffee-font-mono: 'Space Mono', monospace;
+  --Coffee-transition-elite: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Coffee-container {
+  background: var(--Coffee-bg-elite);
+  padding: 8rem 2rem 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: var(--Coffee-font-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.Coffee-container::before {
+  content: "COFFEE";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15vw;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+}
+
+.Coffee-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.Coffee-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--Coffee-primary-elite);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.Coffee-subtitle {
+  font-size: 1.1rem;
+  color: var(--Coffee-secondary-elite);
+  max-width: 450px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.Coffee-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.Coffee-card {
+  background: #ffffff;
+  border: 1px solid var(--Coffee-border-elite);
+  border-radius: 0px;
+  overflow: hidden;
+  transition: var(--Coffee-transition-elite);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.Coffee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--Coffee-card-shadow-hover);
+  border-color: #000;
+}
+
+.Coffee-imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  /* Square aspect ratio for compact elite look */
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.Coffee-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Coffee-card:hover .Coffee-image {
+  transform: scale(1.05);
+}
+
+.Coffee-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.Coffee-details {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Coffee-category-meta {
+  font-family: var(--Coffee-font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: var(--Coffee-secondary-elite);
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Coffee-category-meta::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--Coffee-secondary-elite);
+}
+
+.Coffee-card-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.Coffee-card-col-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.Coffee-card-col-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.Coffee-name {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--Coffee-primary-elite);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.Coffee-quantity {
+  font-family: var(--Coffee-font-mono);
+  font-weight: 400;
+  color: #888;
+  font-size: 0.6rem;
+}
+
+.Coffee-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Coffee-price {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.Coffee-originalPrice {
+  font-family: var(--Coffee-font-mono);
+  text-decoration: line-through;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.Coffee-actions {
+  margin-top: auto;
+}
+
+.Coffee-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--Coffee-transition-elite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Coffee-btn:hover {
+  background: var(--Coffee-accent-elite);
+  letter-spacing: 4px;
+}
+
+.Coffee-added {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--Coffee-accent-elite);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.Coffee-pagination {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--Coffee-border-elite);
+}
+
+.Coffee-pageBtn {
+  background: none;
+  border: none;
+  font-family: var(--Coffee-font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--Coffee-transition-elite);
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Coffee-pageBtn:hover:not(:disabled) {
+  color: var(--Coffee-accent-elite);
+  transform: translateX(5px);
+}
+
+.Coffee-pageBtn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.Coffee-pageInfo {
+  font-family: var(--Coffee-font-mono);
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.Coffee-loading,
+.Coffee-noData {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+  font-family: var(--Coffee-font-mono);
+}
+
+.Coffee-spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #eee;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: WelcomeSpin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1500px) {
+  .Coffee-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .Coffee-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .Coffee-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Coffee-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}

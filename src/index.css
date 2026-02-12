@@ -1,0 +1,12 @@
+/* Global Spacing for Fixed Navbar */
+body {
+    padding-top: 130px;
+    /* Adjust based on desktop navbar height */
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding-top: 100px;
+        /* Adjust based on mobile navbar height */
+    }
+}

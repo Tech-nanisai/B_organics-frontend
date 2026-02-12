@@ -1,0 +1,73 @@
+.DarkToggle-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.DarkToggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.DarkToggle-btn:active {
+    transform: scale(0.9);
+}
+
+.DarkToggle-track {
+    width: 54px;
+    height: 28px;
+    background: #e2e8f0;
+    border-radius: 99px;
+    position: relative;
+    transition: background 0.4s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.is-dark .DarkToggle-track {
+    background: #2d3748;
+}
+
+.DarkToggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.is-dark .DarkToggle-thumb {
+    transform: translateX(26px);
+    background: #1a202c;
+}
+
+.DarkToggle-icon {
+    font-size: 12px;
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.is-light .DarkToggle-icon {
+    color: #f6e05e;
+}
+
+.is-dark .DarkToggle-icon {
+    color: #cbd5e0;
+    transform: rotate(-10deg);
+}
+
+/* Data theme integration */
+[data-theme="dark"] body {
+    background-color: #111827;
+    color: #f3f4f6;
+}

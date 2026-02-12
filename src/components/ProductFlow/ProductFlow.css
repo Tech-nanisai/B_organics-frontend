@@ -1,0 +1,250 @@
+/* ========== CSS VARIABLES ========== */
+:root {
+  --ProductFlow-primary: #2f5c39;
+  --ProductFlow-accent: #6cbd45;
+  --ProductFlow-bg: #fdfdfd;
+  --ProductFlow-card-bg: rgba(255, 255, 255, 0.9);
+  --ProductFlow-text: #1f2937;
+  --ProductFlow-text-muted: #6b7280;
+  --ProductFlow-line: #e5e7eb;
+  --ProductFlow-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  --ProductFlow-font: 'Outfit', sans-serif;
+  --ProductFlow-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --ProductFlow-bg: #111827;
+  --ProductFlow-card-bg: rgba(31, 41, 55, 0.8);
+  --ProductFlow-text: #f3f4f6;
+  --ProductFlow-text-muted: #9ca3af;
+  --ProductFlow-line: #374151;
+}
+
+/* ========== CONTAINER ========== */
+.ProductFlow-container {
+  padding: 4rem 2rem;
+  background: var(--ProductFlow-bg);
+  font-family: var(--ProductFlow-font);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ProductFlow-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ProductFlow-line), transparent);
+}
+
+/* Header */
+.ProductFlow-header {
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ProductFlow-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ProductFlow-primary);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.03em;
+}
+
+.ProductFlow-subtitle {
+  font-size: 1.1rem;
+  color: var(--ProductFlow-text-muted);
+  line-height: 1.6;
+}
+
+/* ========== STEPS WRAPPER ========== */
+.ProductFlow-steps {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Connecting Line (Desktop) */
+.ProductFlow-steps::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  /* Align with icon center */
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: repeating-linear-gradient(to right, var(--ProductFlow-line) 0, var(--ProductFlow-line) 10px, transparent 10px, transparent 20px);
+  z-index: 0;
+}
+
+/* ========== INDIVIDUAL STEP ========== */
+.ProductFlow-step {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  padding: 1rem;
+}
+
+/* Icon Bubble */
+.ProductFlow-iconWrapper {
+  width: 85px;
+  height: 85px;
+  background: var(--ProductFlow-card-bg);
+  border: 1px solid var(--ProductFlow-line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: var(--ProductFlow-primary);
+  box-shadow: var(--ProductFlow-shadow);
+  transition: var(--ProductFlow-transition);
+  margin-bottom: 1.25rem;
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.ProductFlow-step:hover .ProductFlow-iconWrapper {
+  transform: translateY(-8px) scale(1.1);
+  border-color: var(--ProductFlow-accent);
+  color: var(--ProductFlow-accent);
+  box-shadow: 0 20px 40px -10px rgba(108, 189, 69, 0.3);
+}
+
+.ProductFlow-step:hover .ProductFlow-iconWrapper::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--ProductFlow-accent);
+  opacity: 0.3;
+  animation: pulseRing 2s infinite;
+}
+
+/* Text Content */
+.ProductFlow-content {
+  text-align: center;
+  transition: var(--ProductFlow-transition);
+}
+
+.ProductFlow-stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ProductFlow-text);
+  margin-bottom: 0.5rem;
+}
+
+.ProductFlow-stepDesc {
+  font-size: 0.95rem;
+  color: var(--ProductFlow-text-muted);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+/* Number Badge */
+.ProductFlow-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--ProductFlow-primary);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+/* ========== ANIMATION ========== */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .ProductFlow-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .ProductFlow-steps::before {
+    top: 50px;
+    left: 50%;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom, var(--ProductFlow-line) 0, var(--ProductFlow-line) 10px, transparent 10px, transparent 20px);
+    transform: translateX(-50%);
+  }
+
+  .ProductFlow-step {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 1.5rem;
+    max-width: 500px;
+    background: var(--ProductFlow-card-bg);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--ProductFlow-line);
+  }
+
+  .ProductFlow-content {
+    text-align: left;
+  }
+
+  .ProductFlow-iconWrapper {
+    margin-bottom: 0;
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .ProductFlow-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ProductFlow-step {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ProductFlow-content {
+    text-align: center;
+  }
+
+  .ProductFlow-steps::before {
+    display: none;
+    /* Hide line on very small screens if visual noise is too high, or keep it */
+  }
+}

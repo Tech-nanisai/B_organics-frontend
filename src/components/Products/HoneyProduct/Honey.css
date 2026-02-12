@@ -1,0 +1,361 @@
+/* Honey.css - Ultimate Premium White Edition */
+
+:root {
+  --Honey-primary-elite: #111111;
+  --Honey-secondary-elite: #777777;
+  --Honey-accent-elite: #1a3a17;
+  /* Deep Organic Green */
+  --Honey-bg-elite: #ffffff;
+  --Honey-border-elite: #eeeeee;
+  --Honey-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --Honey-card-shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --Honey-font-main: 'Outfit', sans-serif;
+  --Honey-font-mono: 'Space Mono', monospace;
+  --Honey-transition-elite: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Honey-container {
+  background: var(--Honey-bg-elite);
+  padding: 8rem 2rem 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: var(--Honey-font-main);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.Honey-container::before {
+  content: "HONEY";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15vw;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+}
+
+/* Header Section */
+.Honey-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.Honey-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--Honey-primary-elite);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.Honey-subtitle {
+  font-size: 1.1rem;
+  color: var(--Honey-secondary-elite);
+  max-width: 450px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.Honey-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Product Card */
+.Honey-card {
+  background: #ffffff;
+  border: 1px solid var(--Honey-border-elite);
+  border-radius: 0px;
+  /* Minimalist Square corners for Elite feel */
+  overflow: hidden;
+  transition: var(--Honey-transition-elite);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.Honey-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--Honey-card-shadow-hover);
+  border-color: #000;
+}
+
+.Honey-imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.Honey-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Honey-card:hover .Honey-image {
+  transform: scale(1.05);
+}
+
+/* Elite Badge */
+.Honey-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Details Section */
+.Honey-details {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Honey-category-meta {
+  font-family: var(--Honey-font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: var(--Honey-secondary-elite);
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Honey-category-meta::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--Honey-secondary-elite);
+}
+
+.Honey-card-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.Honey-card-col-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.Honey-card-col-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.Honey-name {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--Honey-primary-elite);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.Honey-quantity {
+  font-family: var(--Honey-font-mono);
+  font-weight: 400;
+  color: #888;
+  font-size: 0.6rem;
+}
+
+.Honey-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Honey-price {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.Honey-originalPrice {
+  font-family: var(--Honey-font-mono);
+  text-decoration: line-through;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/* Button Styling */
+.Honey-actions {
+  margin-top: auto;
+}
+
+.Honey-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--Honey-transition-elite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Honey-btn:hover {
+  background: var(--Honey-accent-elite);
+  letter-spacing: 4px;
+}
+
+.Honey-added {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--Honey-accent-elite);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+/* Pagination Elite */
+.Honey-pagination {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--Honey-border-elite);
+}
+
+.Honey-pageBtn {
+  background: none;
+  border: none;
+  font-family: var(--Honey-font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--Honey-transition-elite);
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Honey-pageBtn:hover:not(:disabled) {
+  color: var(--Honey-accent-elite);
+  transform: translateX(5px);
+}
+
+.Honey-pageBtn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.Honey-pageInfo {
+  font-family: var(--Honey-font-mono);
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* State Messages */
+.Honey-loading,
+.Honey-noData {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+  font-family: var(--Honey-font-mono);
+}
+
+.Honey-spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #eee;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: WelcomeSpin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes WelcomeSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1500px) {
+  .Honey-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .Honey-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .Honey-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Honey-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}

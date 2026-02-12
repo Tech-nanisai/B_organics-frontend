@@ -1,0 +1,126 @@
+.admin-customer-manager {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.customer-stats {
+    background: #6cbd45;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.customer-stats strong {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+}
+
+.customer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.customer-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+    transition: all 0.2s;
+}
+
+.customer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #6cbd45;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.customer-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6cbd45 0%, #34d399 100%);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    box-shadow: 0 10px 15px -3px rgba(108, 189, 69, 0.3);
+}
+
+.more-options {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.more-options:hover {
+    color: #64748b;
+}
+
+.customer-details h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.id-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #475569;
+    word-break: break-all;
+}
+
+.contact-info svg {
+    color: #6cbd45;
+    flex-shrink: 0;
+}
+
+.card-footer {
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
