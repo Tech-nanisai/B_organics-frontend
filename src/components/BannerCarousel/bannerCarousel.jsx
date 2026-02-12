@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight, FaArrowRight, FaMagic } from "react-icons/fa";
-import "./BannerCarousel.css";
+import "./bannerCarousel.css";
 
 const slides = [
   {
