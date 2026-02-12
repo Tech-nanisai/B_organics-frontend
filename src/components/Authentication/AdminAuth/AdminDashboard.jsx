@@ -94,9 +94,9 @@ const AdminDashboard = () => {
     const fetchStats = async () => {
         try {
             const [ordersRes, usersRes, productsRes] = await Promise.all([
-                axios.get('http://localhost:5678/api/orders', { withCredentials: true }),
-                axios.get('http://localhost:5678/api/users', { withCredentials: true }),
-                axios.get('http://localhost:5678/api/products')
+                axios.get('https://b-organics-backend.onrender.com/api/orders', { withCredentials: true }),
+                axios.get('https://b-organics-backend.onrender.com/api/users', { withCredentials: true }),
+                axios.get('https://b-organics-backend.onrender.com/api/products')
             ]);
 
             const deliveredOrders = ordersRes.data.filter(o => o.orderStatus === 'Delivered');

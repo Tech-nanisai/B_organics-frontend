@@ -55,7 +55,7 @@ const WelcomeModal = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post("http://localhost:5678/api/users/register", formData, { withCredentials: true });
+            const response = await axios.post("https://b-organics-backend.onrender.com/api/users/register", formData, { withCredentials: true });
 
             if (response.status === 201) {
                 setSuccess(true);

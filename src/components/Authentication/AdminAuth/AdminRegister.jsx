@@ -25,7 +25,7 @@ const AdminRegister = () => {
         setLoading(true);
 
         try {
-            await axios.post('http://localhost:5678/api/admin/register', formData);
+            await axios.post('https://b-organics-backend.onrender.com/api/admin/register', formData);
             navigate('/admin/login');
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed. Please try again.');

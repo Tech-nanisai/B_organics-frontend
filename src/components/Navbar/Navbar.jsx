@@ -33,7 +33,7 @@ const Navbar = () => {
     if (!text) return setSuggestions([]);
     setSearchLoading(true);
     try {
-      const res = await fetch(`http://localhost:5678/api/search?query=${text}`);
+      const res = await fetch(`https://b-organics-backend.onrender.com/api/search?query=${text}`);
       const data = await res.json();
       if (res.ok) {
         setSuggestions(data.slice(0, 10));

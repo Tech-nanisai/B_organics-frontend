@@ -34,7 +34,7 @@ const AdminLogin = () => {
         setLoading(true);
 
         try {
-            await axios.post('http://localhost:5678/api/admin/login', formData, {
+            await axios.post('https://b-organics-backend.onrender.com/api/admin/login', formData, {
                 withCredentials: true
             });
 

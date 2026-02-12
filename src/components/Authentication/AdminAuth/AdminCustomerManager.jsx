@@ -14,7 +14,7 @@ const AdminCustomerManager = () => {
 
     const fetchCustomers = async () => {
         try {
-            const res = await axios.get('http://localhost:5678/api/users', { withCredentials: true });
+            const res = await axios.get('https://b-organics-backend.onrender.com/api/users', { withCredentials: true });
             setCustomers(res.data);
             setLoading(false);
         } catch (err) {

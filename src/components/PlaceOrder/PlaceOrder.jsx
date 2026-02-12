@@ -105,7 +105,7 @@ const PlaceOrder = () => {
         paymentMethod: "COD"
       };
 
-      const response = await axios.post('http://localhost:5678/api/orders/create', orderData, { withCredentials: true });
+      const response = await axios.post('https://b-organics-backend.onrender.com/api/orders/create', orderData, { withCredentials: true });
 
       if (response.status === 201) {
         clearCart();

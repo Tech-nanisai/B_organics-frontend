@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUserData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5678/api/users/current", {
+      const res = await axios.get("https://b-organics-backend.onrender.com/api/users/current", {
         withCredentials: true,
       });
       if (res.data.profile) {
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       // 1. Call backend to clear httpOnly cookie correctly
-      await axios.post("http://localhost:5678/api/users/logout", {}, { withCredentials: true });
+      await axios.post("https://b-organics-backend.onrender.com/api/users/logout", {}, { withCredentials: true });
 
       // 2. Reset local state
       setIsLoggedIn(false);

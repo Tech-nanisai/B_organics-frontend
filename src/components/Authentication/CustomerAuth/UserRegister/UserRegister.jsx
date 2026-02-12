@@ -38,7 +38,7 @@ const UserRegister = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5678/api/users/register", formData, {
+      const response = await axios.post("https://b-organics-backend.onrender.com/api/users/register", formData, {
         withCredentials: true
       });
 

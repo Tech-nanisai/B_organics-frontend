@@ -15,7 +15,7 @@ const AdminOrderManager = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('http://localhost:5678/api/orders', { withCredentials: true });
+            const res = await axios.get('https://b-organics-backend.onrender.com/api/orders', { withCredentials: true });
             setOrders(res.data);
             setLoading(false);
         } catch (err) {
@@ -26,7 +26,7 @@ const AdminOrderManager = () => {
 
     const updateStatus = async (id, newStatus) => {
         try {
-            await axios.put(`http://localhost:5678/api/orders/${id}/status`, { status: newStatus }, { withCredentials: true });
+            await axios.put(`https://b-organics-backend.onrender.com/api/orders/${id}/status`, { status: newStatus }, { withCredentials: true });
             fetchOrders();
             if (selectedOrder && selectedOrder._id === id) {
                 setSelectedOrder({ ...selectedOrder, orderStatus: newStatus });

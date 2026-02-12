@@ -19,7 +19,7 @@ const Fruits = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
     window.scrollTo(0, 0);
-    fetch("http://localhost:5678/api/products/category/fruits")
+    fetch("https://b-organics-backend.onrender.com/api/products/category/fruits")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error("Error fetching fruits:", err))

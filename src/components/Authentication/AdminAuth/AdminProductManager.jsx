@@ -35,7 +35,7 @@ const AdminProductManager = () => {
 
     const fetchProducts = async () => {
         try {
-            const res = await axios.get('http://localhost:5678/api/products');
+            const res = await axios.get('https://b-organics-backend.onrender.com/api/products');
             setProducts(res.data);
             setLoading(false);
         } catch (err) {
@@ -131,7 +131,7 @@ const AdminProductManager = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this product?")) return;
         try {
-            await axios.delete(`http://localhost:5678/api/products/${id}`, { withCredentials: true });
+            await axios.delete(`https://b-organics-backend.onrender.com/api/products/${id}`, { withCredentials: true });
             fetchProducts();
         } catch (err) {
             alert("Failed to delete product. Check permissions.");
@@ -184,9 +184,9 @@ const AdminProductManager = () => {
             };
 
             if (isEditing) {
-                await axios.put(`http://localhost:5678/api/products/${currentProduct._id}`, formData, config);
+                await axios.put(`https://b-organics-backend.onrender.com/api/products/${currentProduct._id}`, formData, config);
             } else {
-                await axios.post('http://localhost:5678/api/products', formData, config);
+                await axios.post('https://b-organics-backend.onrender.com/api/products', formData, config);
             }
 
             setIsModalOpen(false);

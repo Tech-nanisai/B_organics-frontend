@@ -18,7 +18,7 @@ const ProductDetails = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         setLoading(true);
-        fetch("http://localhost:5678/api/products")
+        fetch("https://b-organics-backend.onrender.com/api/products")
             .then((res) => res.json())
             .then((data) => {
                 const current = data.find((p) => p._id === id);

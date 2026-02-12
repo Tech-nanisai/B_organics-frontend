@@ -19,7 +19,7 @@ const UserOrders = () => {
 
     const fetchUserOrders = async () => {
         try {
-            const res = await axios.get('http://localhost:5678/api/orders/user', { withCredentials: true });
+            const res = await axios.get('https://b-organics-backend.onrender.com/api/orders/user', { withCredentials: true });
             setOrders(res.data);
             setLoading(false);
         } catch (err) {
@@ -36,7 +36,7 @@ const UserOrders = () => {
     const handleRemoveOrder = async () => {
         if (!orderToDelete) return;
         try {
-            await axios.delete(`http://localhost:5678/api/orders/user/${orderToDelete}`, { withCredentials: true });
+            await axios.delete(`https://b-organics-backend.onrender.com/api/orders/user/${orderToDelete}`, { withCredentials: true });
             setOrders(orders.filter(order => order._id !== orderToDelete));
             setShowModal(false);
             setOrderToDelete(null);

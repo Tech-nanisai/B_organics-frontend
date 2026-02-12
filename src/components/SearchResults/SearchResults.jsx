@@ -22,7 +22,7 @@ const SearchResults = () => {
       setLoading(true);
       setNotFound(false); // Reset not found state before fetch
       try {
-        const res = await fetch(`http://localhost:5678/api/search?query=${query}`);
+        const res = await fetch(`https://b-organics-backend.onrender.com/api/search?query=${query}`);
         const data = await res.json();
 
         if (res.ok && data.length > 0) {

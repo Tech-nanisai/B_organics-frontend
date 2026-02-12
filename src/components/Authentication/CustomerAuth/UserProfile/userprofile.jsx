@@ -34,7 +34,7 @@ const UserProfile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:5678/api/users/current", {
+      const res = await axios.get("https://b-organics-backend.onrender.com/api/users/current", {
         withCredentials: true,
       });
       setProfile(res.data.profile);
@@ -94,7 +94,7 @@ const UserProfile = () => {
     try {
       // 1. Update profile details
       await axios.put(
-        `http://localhost:5678/api/users/profile/${profile.nanoid}`,
+        `https://b-organics-backend.onrender.com/api/users/profile/${profile.nanoid}`,
         {
           fullName: profile.fullName,
           email: profile.email,
@@ -131,7 +131,7 @@ const UserProfile = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5678/api/users/profile/upload",
+        "https://b-organics-backend.onrender.com/api/users/profile/upload",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

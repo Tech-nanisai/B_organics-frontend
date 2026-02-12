@@ -19,7 +19,7 @@ const Honey = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
     window.scrollTo(0, 0);
-    fetch("http://localhost:5678/api/products/category/honey")
+    fetch("https://b-organics-backend.onrender.com/api/products/category/honey")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error("Error fetching honey:", err))
